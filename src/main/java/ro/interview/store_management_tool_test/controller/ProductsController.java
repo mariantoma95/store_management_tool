@@ -9,14 +9,11 @@ import ro.interview.store_management_tool_test.dto.ProductPriceDto;
 import ro.interview.store_management_tool_test.service.ProductService;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/products/v1")
 public class ProductsController {
 
     private final ProductService productService;
-
-    public ProductsController(ProductService productService) {
-        this.productService = productService;
-    }
 
     @PutMapping("/{id}/price")
     public ResponseEntity<ProductDto> updatePrice(@PathVariable Long id, @Valid @RequestBody ProductPriceDto productPriceDto) {
