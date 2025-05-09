@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 2
       author: mariantoma95
+
       changes:
         - insert:
             tableName: product

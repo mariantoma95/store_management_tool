@@ -6,9 +6,11 @@ databaseChangeLog:
       changes:
         - createSequence:
             sequenceName: product_seq
+            incrementBy: 10
 
         - createSequence:
             sequenceName: stock_seq
+            incrementBy: 10
 
         - createTable:
             tableName: product
@@ -39,7 +41,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: sku
-                  type: BIGINT
+                  type: VARCHAR(30)
                   constraints:
                     nullable: false
                     unique: true
@@ -55,7 +57,7 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: sku
-                  type: BIGINT
+                  type: VARCHAR(30)
                   constraints:
                     nullable: false
                     unique: true
