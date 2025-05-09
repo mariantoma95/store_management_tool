@@ -1,0 +1,107 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: mariantoma95
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "Samsung S24" }
+              - column: { name: description, value: "Better than iPhone 15" }
+              - column: { name: price, valueNumeric: 799.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1001 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "Samsung S24 Plus" }
+              - column: { name: description, value: "Better than iPhone 15 Pro" }
+              - column: { name: price, valueNumeric: 999.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1002 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "Samsung S24 Ultra" }
+              - column: { name: description, value: "Better than iPhone 15 Pro Max" }
+              - column: { name: price, valueNumeric: 1199.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1003 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "iPhone 15" }
+              - column: { name: price, valueNumeric: 799.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1011 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "iPhone 15 Pro" }
+              - column: { name: description, value: "Better than Samsung S24 Plus" }
+              - column: { name: price, valueNumeric: 999.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1012 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "iPhone 15 Pro Max" }
+              - column: { name: description, value: "Better than Samsung S24 Ultra" }
+              - column: { name: price, valueNumeric: 1099.99 }
+              - column: { name: type, value: "electronics" }
+              - column: { name: sku, valueNumeric: 1013 }
+
+        - insert:
+            tableName: product
+            columns:
+              - column: { name: name, value: "Nike Air Force 1" }
+              - column: { name: description, value: "May the air force be with you" }
+              - column: { name: price, valueNumeric: 119.99 }
+              - column: { name: type, value: "fashion" }
+              - column: { name: sku, valueNumeric: 2001 }
+
+
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1001 }
+              - column: { name: quantity, valueNumeric: 20 }
+
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1002 }
+              - column: { name: quantity, valueNumeric: 15 }
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1003 }
+              - column: { name: quantity, valueNumeric: 10 }
+
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1011 }
+              - column: { name: quantity, valueNumeric: 25 }
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1012 }
+              - column: { name: quantity, valueNumeric: 18 }
+
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 1013 }
+              - column: { name: quantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: sku, valueNumeric: 2001 }
+              - column: { name: quantity, valueNumeric: 44 }

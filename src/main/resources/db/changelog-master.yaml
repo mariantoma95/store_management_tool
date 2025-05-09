@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/create-product-and-stock-tables.yaml
+  - include:
+      file: db/insert-data.yaml
