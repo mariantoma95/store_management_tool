@@ -1,0 +1,73 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: mariantoma95
+
+      changes:
+        - createSequence:
+            sequenceName: product_seq
+
+        - createSequence:
+            sequenceName: stock_seq
+
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  defaultValueComputed: nextval('product_seq')
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(100)
+              - column:
+                  name: price
+                  type: NUMERIC(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sku
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    unique: true
+
+        - createTable:
+            tableName: stock
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  defaultValueComputed: nextval('stock_seq')
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: sku
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: quantity
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: stock
+            baseColumnNames: sku
+            referencedTableName: product
+            referencedColumnNames: sku
+            constraintName: fk_stock_product_sku
