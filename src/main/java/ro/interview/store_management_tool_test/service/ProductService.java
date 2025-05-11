@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ro.interview.store_management_tool_test.dto.ProductDto;
 import ro.interview.store_management_tool_test.dto.ProductPriceDto;
+import ro.interview.store_management_tool_test.dto.ProductStockDto;
 import ro.interview.store_management_tool_test.exception.ProductNotFoundException;
 import ro.interview.store_management_tool_test.mapper.ProductMapper;
 import ro.interview.store_management_tool_test.model.Product;
@@ -34,5 +35,20 @@ public class ProductService {
         List<Product> products = productRepository.findAll(pageable);
 
         return products.stream().map(productMapper::mapProductToProductDtoMapper).toList();
+    }
+
+    @Transactional
+    public ProductDto updateQuantity(Long id, ProductStockDto productStockDto) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
+        product.getStock().setQuantity(productStockDto.getQuantity());
+        productRepository.save(product);
+
+        return productMapper.mapProductToProductDtoMapper(product);
+    }
+
+    public ProductDto getProductBySku(String sku) {
+        Product product = productRepository.findBySku(sku).orElseThrow(() -> new ProductNotFoundException(sku));
+
+        return productMapper.mapProductToProductDtoMapper(product);
     }
 }

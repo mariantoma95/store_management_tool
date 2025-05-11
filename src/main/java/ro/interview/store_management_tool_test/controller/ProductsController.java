@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ro.interview.store_management_tool_test.dto.ProductDto;
 import ro.interview.store_management_tool_test.dto.ProductPriceDto;
+import ro.interview.store_management_tool_test.dto.ProductStockDto;
 import ro.interview.store_management_tool_test.service.ProductService;
 
 import java.util.List;
@@ -37,5 +38,18 @@ public class ProductsController {
             @RequestParam(defaultValue = "4") Integer size) {
 
         return ResponseEntity.ok(productService.getAllProducts(page, size));
+    }
+
+    @PutMapping("/{id}/quantity")
+    public ResponseEntity<ProductDto> updateStock(
+            @PathVariable Long id,
+            @Valid @RequestBody ProductStockDto productStockDto) {
+
+        return ResponseEntity.ok(productService.updateQuantity(id, productStockDto));
+    }
+
+    @GetMapping("/{sku}")
+    private ResponseEntity<ProductDto> getProductBySku(@PathVariable String sku) {
+        return ResponseEntity.ok(productService.getProductBySku(sku));
     }
 }

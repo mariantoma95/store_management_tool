@@ -27,9 +27,11 @@ public class SecurityConfig {
         return http.httpBasic(Customizer.withDefaults())
                 .userDetailsService(userDetailsService)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/products/v1").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/products/v1").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/products/v1/*").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/products/v1/*/price").hasRole("MANAGER")
-                        .anyRequest().permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/products/v1/*/quantity").hasRole("MANAGER")
+                        .anyRequest().denyAll()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .exceptionHandling(customizer -> customizer

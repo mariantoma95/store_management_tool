@@ -6,5 +6,7 @@ public record ProductDto(
         String name,
         String description,
         BigDecimal price,
-        ProductType type, String sku) {
+        ProductType type,
+        String sku,
+        Integer quantity) {
 }

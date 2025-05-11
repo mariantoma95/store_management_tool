@@ -6,9 +6,12 @@ import org.springframework.stereotype.Repository;
 import ro.interview.store_management_tool_test.model.Product;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findAll(Pageable pageable);
+
+    Optional<Product> findBySku(String sku);
 }
