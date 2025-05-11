@@ -32,6 +32,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/products/v1/*/price").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PUT, "/products/v1/*/quantity").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.POST, "/products/v1").hasRole("ADMIN")
+                        .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/debug/**").permitAll()
                         .anyRequest().denyAll()
                 )
                 .csrf(AbstractHttpConfigurer::disable)

@@ -2,6 +2,8 @@ package ro.interview.store_management_tool_test.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,7 @@ public class ProductService {
     private final ProductMapper productMapper;
 
     @Transactional
+    @CacheEvict(value = "productBySku", key = "#result.sku")
     public ProductDto updatePrice(Long id, ProductPriceDto productPriceDto) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         product.setPrice(productPriceDto.getPrice());
@@ -40,6 +43,7 @@ public class ProductService {
     }
 
     @Transactional
+    @CacheEvict(value = "productBySku", key = "#result.sku")
     public ProductDto updateQuantity(Long id, ProductStockDto productStockDto) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         product.getStock().setQuantity(productStockDto.getQuantity());
@@ -48,6 +52,7 @@ public class ProductService {
         return productMapper.mapProductToProductDtoMapper(product);
     }
 
+    @Cacheable(value = "productBySku", key = "#sku")
     public ProductDto getProductBySku(String sku) {
         Product product = productRepository.findBySku(sku).orElseThrow(() -> new ProductNotFoundException(sku));
 
