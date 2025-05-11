@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: mariantoma95
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, value: "1" }
+              - column: { name: username, value: "user" }
+              - column: { name: password_hash, value: "$2a$10$w8c3ZCwq1MXxoUgW9PH1Tu.C6pPQJN19zIQE6QwcoY2eHtPyV0aCm" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_date, valueDate: "NOW()" }
+              - column: { name: updated_date, valueDate: "NOW()" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "1" }
+              - column: { name: roles, value: "ROLE_USER" }
+
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, value: "2" }
+              - column: { name: username, value: "manager" }
+              - column: { name: password_hash, value: "$2a$10$XTk8KRW2.sEbIvO776cGJeiwhu.7pG15KXoaV5DNbXVEsWM.XApsi" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_date, valueDate: "NOW()" }
+              - column: { name: updated_date, valueDate: "NOW()" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "2" }
+              - column: { name: roles, value: "ROLE_USER" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "2" }
+              - column: { name: roles, value: "ROLE_MANAGER" }
+
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, value: "3" }
+              - column: { name: username, value: "admin" }
+              - column: { name: password_hash, value: "$2a$10$AxJDBUiPaqo8sXD4XCC9sOjDzM0JlbPVHnJYAD2bFEjdHqckmPAIu" }
+              - column: { name: active, valueBoolean: true }
+              - column: { name: created_date, valueDate: "NOW()" }
+              - column: { name: updated_date, valueDate: "NOW()" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "3" }
+              - column: { name: roles, value: "ROLE_USER" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "3" }
+              - column: { name: roles, value: "ROLE_MANAGER" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, value: "3" }
+              - column: { name: roles, value: "ROLE_ADMIN" }

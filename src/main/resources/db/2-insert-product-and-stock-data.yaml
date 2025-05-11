@@ -10,7 +10,7 @@ databaseChangeLog:
               - column: { name: name, value: "Samsung S24" }
               - column: { name: description, value: "Better than iPhone 15" }
               - column: { name: price, valueNumeric: 799.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1001 }
 
         - insert:
@@ -19,7 +19,7 @@ databaseChangeLog:
               - column: { name: name, value: "Samsung S24 Plus" }
               - column: { name: description, value: "Better than iPhone 15 Pro" }
               - column: { name: price, valueNumeric: 999.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1002 }
 
         - insert:
@@ -28,7 +28,7 @@ databaseChangeLog:
               - column: { name: name, value: "Samsung S24 Ultra" }
               - column: { name: description, value: "Better than iPhone 15 Pro Max" }
               - column: { name: price, valueNumeric: 1199.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1003 }
 
         - insert:
@@ -36,7 +36,7 @@ databaseChangeLog:
             columns:
               - column: { name: name, value: "iPhone 15" }
               - column: { name: price, valueNumeric: 799.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1011 }
 
         - insert:
@@ -45,7 +45,7 @@ databaseChangeLog:
               - column: { name: name, value: "iPhone 15 Pro" }
               - column: { name: description, value: "Better than Samsung S24 Plus" }
               - column: { name: price, valueNumeric: 999.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1012 }
 
         - insert:
@@ -54,7 +54,7 @@ databaseChangeLog:
               - column: { name: name, value: "iPhone 15 Pro Max" }
               - column: { name: description, value: "Better than Samsung S24 Ultra" }
               - column: { name: price, valueNumeric: 1099.99 }
-              - column: { name: type, value: "electronics" }
+              - column: { name: type, value: "ELECTRONICS" }
               - column: { name: sku, valueNumeric: 1013 }
 
         - insert:
@@ -63,7 +63,7 @@ databaseChangeLog:
               - column: { name: name, value: "Nike Air Force 1" }
               - column: { name: description, value: "May the air force be with you" }
               - column: { name: price, valueNumeric: 119.99 }
-              - column: { name: type, value: "fashion" }
+              - column: { name: type, value: "FASHION" }
               - column: { name: sku, valueNumeric: 2001 }
 
 

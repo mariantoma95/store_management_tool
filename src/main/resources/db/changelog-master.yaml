@@ -1,5 +1,9 @@
 databaseChangeLog:
   - include:
-      file: db/create-product-and-stock-tables.yaml
+      file: db/1-create-product-and-stock-tables.yaml
   - include:
-      file: db/insert-data.yaml
+      file: db/2-insert-product-and-stock-data.yaml
+  - include:
+      file: db/3-create-user.yaml
+  - include:
+      file: db/4-insert-user-data.yaml

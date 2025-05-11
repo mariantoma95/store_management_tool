@@ -1,6 +1,9 @@
 package ro.interview.store_management_tool_test.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ro.interview.store_management_tool_test.dto.ProductDto;
 import ro.interview.store_management_tool_test.dto.ProductPriceDto;
@@ -9,17 +12,27 @@ import ro.interview.store_management_tool_test.mapper.ProductMapper;
 import ro.interview.store_management_tool_test.model.Product;
 import ro.interview.store_management_tool_test.repository.ProductRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
+    @Transactional
     public ProductDto updatePrice(Long id, ProductPriceDto productPriceDto) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         product.setPrice(productPriceDto.getPrice());
         productRepository.save(product);
 
-        return productMapper.productToProductDtoMapper(product);
+        return productMapper.mapProductToProductDtoMapper(product);
+    }
+
+    public List<ProductDto> getAllProducts(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        List<Product> products = productRepository.findAll(pageable);
+
+        return products.stream().map(productMapper::mapProductToProductDtoMapper).toList();
     }
 }

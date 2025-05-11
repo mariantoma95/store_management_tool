@@ -6,5 +6,6 @@ import ro.interview.store_management_tool_test.model.Product;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
-    ProductDto productToProductDtoMapper(Product product);
+
+    ProductDto mapProductToProductDtoMapper(Product product);
 }
