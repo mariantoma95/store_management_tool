@@ -14,4 +14,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> findAll(Pageable pageable);
 
     Optional<Product> findBySku(String sku);
+
+    boolean existsBySku(String sku);
 }

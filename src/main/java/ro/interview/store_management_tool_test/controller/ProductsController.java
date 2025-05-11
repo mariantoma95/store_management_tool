@@ -2,9 +2,11 @@ package ro.interview.store_management_tool_test.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +51,12 @@ public class ProductsController {
     }
 
     @GetMapping("/{sku}")
-    private ResponseEntity<ProductDto> getProductBySku(@PathVariable String sku) {
+    public ResponseEntity<ProductDto> getProductBySku(@PathVariable String sku) {
         return ResponseEntity.ok(productService.getProductBySku(sku));
+    }
+
+    @PostMapping()
+    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productDto));
     }
 }
