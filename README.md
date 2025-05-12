@@ -15,10 +15,10 @@ Import in Postman the collection and the environment found in `resources/postman
 Run the application.  
 
 At startup, Liquibase will populate the database with some mocked products as specified in `resources/db` files.  
-Liquibase will also create 3 users with different wrights:
+Liquibase will also create 3 users with different rights:
 - ADMIN - full rights (create, update and get products)
 - MANAGER - rights to update and get products
-- USER (at the current status of the application) - same as non authenticated requests, can just get products
+- USER (at the current status of the application) - same as non-authenticated requests, can just get products
 
 ### Functionalities
 This application exposes the following endpoints:
@@ -37,9 +37,9 @@ This application exposes the following endpoints:
 - Java 21, Maven, SpringBoot (with web, security, logging, data - hibernate, aop, caching, validation, actuator, test), Postgres, Liquibase, Lombok, Mapstruct, Docker, Git.
 
 ### Further improvements
-1. Logging - now we implement traceId with an AOP around the controller methods, which populates the traceId when the request is made with the correct auth. If an unauthenticated or unauthorized user makes a request, the traceId will not be populated.
+1. Logging - now we implement traceId with an AOP around the controller methods, which populates the value of traceId when the request is made with the correct auth. If an unauthenticated or unauthorized user makes a request, the traceId will not be populated.
 2. Take into consideration adding an index in our products table.
 3. Nice to have - implement swagger.
 4. Expose metrics (maybe with popular Grafana and Prometheus - but I don't have experience yet with these tools).
-5. Do some sort of performance testing on frequently used endpoints, most likely get product by sku and get all product paginated (I used JMeter and Blazemeter to test high volumes or requests)
+5. Do some sort of performance testing on frequently used endpoints, most likely get product by sku and get all product paginated (I used JMeter and Blazemeter to test high volumes or requests).
 6. Replace product id value from a number that increments to a UUID.

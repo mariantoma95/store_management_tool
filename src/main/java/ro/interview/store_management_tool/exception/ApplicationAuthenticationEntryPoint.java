@@ -25,7 +25,9 @@ public class ApplicationAuthenticationEntryPoint implements AuthenticationEntryP
                          AuthenticationException authException) throws IOException {
 
         ExceptionDto exceptionDto = ExceptionDto.builder().message(authException.getMessage()).build();
+
         log.error("Authentication error: {}", exceptionDto.message());
+
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json");
         objectMapper.writeValue(response.getOutputStream(), exceptionDto);

@@ -14,7 +14,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import ro.interview.store_management_tool.util.Role;
+import ro.interview.store_management_tool.model.enums.Role;
 
 import java.time.Instant;
 import java.util.List;

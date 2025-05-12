@@ -3,7 +3,7 @@ package ro.interview.store_management_tool.security.user;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ro.interview.store_management_tool.util.Role;
+import ro.interview.store_management_tool.model.enums.Role;
 
 import java.util.Collection;
 import java.util.List;

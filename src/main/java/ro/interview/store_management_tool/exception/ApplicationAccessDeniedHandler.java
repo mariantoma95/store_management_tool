@@ -25,7 +25,9 @@ public class ApplicationAccessDeniedHandler implements AccessDeniedHandler {
                        AccessDeniedException accessDeniedException) throws IOException {
 
         ExceptionDto exceptionDto = ExceptionDto.builder().message(accessDeniedException.getMessage()).build();
+
         log.error("Authorization error: {}", exceptionDto.message());
+
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setContentType("application/json");
         objectMapper.writeValue(response.getOutputStream(), exceptionDto);

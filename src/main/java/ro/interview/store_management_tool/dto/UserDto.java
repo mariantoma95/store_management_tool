@@ -1,6 +1,6 @@
 package ro.interview.store_management_tool.dto;
 
-import ro.interview.store_management_tool.util.Role;
+import ro.interview.store_management_tool.model.enums.Role;
 
 import java.util.List;
 
