@@ -26,12 +26,9 @@ public class ProductsController {
 
     private final ProductService productService;
 
-    @PutMapping("/{id}/price")
-    public ResponseEntity<ProductDto> updatePrice(
-            @PathVariable Long id,
-            @Valid @RequestBody ProductPriceDto productPriceDto) {
-
-        return ResponseEntity.ok(productService.updatePrice(id, productPriceDto));
+    @GetMapping("/{sku}")
+    public ResponseEntity<ProductDto> getProductBySku(@PathVariable String sku) {
+        return ResponseEntity.ok(productService.getProductBySku(sku));
     }
 
     @GetMapping
@@ -42,17 +39,20 @@ public class ProductsController {
         return ResponseEntity.ok(productService.getAllProducts(page, size));
     }
 
+    @PutMapping("/{id}/price")
+    public ResponseEntity<ProductDto> updatePrice(
+            @PathVariable Long id,
+            @Valid @RequestBody ProductPriceDto productPriceDto) {
+
+        return ResponseEntity.ok(productService.updatePrice(id, productPriceDto));
+    }
+
     @PutMapping("/{id}/quantity")
     public ResponseEntity<ProductDto> updateStock(
             @PathVariable Long id,
             @Valid @RequestBody ProductStockDto productStockDto) {
 
         return ResponseEntity.ok(productService.updateQuantity(id, productStockDto));
-    }
-
-    @GetMapping("/{sku}")
-    public ResponseEntity<ProductDto> getProductBySku(@PathVariable String sku) {
-        return ResponseEntity.ok(productService.getProductBySku(sku));
     }
 
     @PostMapping()

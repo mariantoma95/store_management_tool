@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "8a626096-37c0-4492-aa5f-e6296e27a4c3",
+		"name": "Store Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2420203"
+	},
+	"item": [
+		{
+			"name": "debug",
+			"item": [
+				{
+					"name": "Actuator cache",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/actuator/caches",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"actuator",
+								"caches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "See ProductBySku cache",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/debug/productBySku",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"debug",
+								"productBySku"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Product by SKU",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/products/v1/1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products",
+						"v1",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products Paginated",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/products/v1?page=0&size=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Air Force 2\",\r\n    \"descirption\": null,\r\n    \"price\": 299.99,\r\n    \"type\": \"FASHION\",\r\n    \"sku\": \"2007\",\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update quantity",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{manager_auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 81\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/v1/1/quantity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"v1",
+						"1",
+						"quantity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update price",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{manager_auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 829.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/v1/1/price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"v1",
+						"1",
+						"price"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
