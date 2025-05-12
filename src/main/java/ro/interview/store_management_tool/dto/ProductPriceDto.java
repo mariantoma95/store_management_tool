@@ -2,6 +2,7 @@ package ro.interview.store_management_tool.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
+@Builder
 public class ProductPriceDto {
 
     @NotNull(message = "Price cannot be null")
